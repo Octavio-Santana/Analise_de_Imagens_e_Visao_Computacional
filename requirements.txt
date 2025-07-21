@@ -9,3 +9,4 @@ pillow
 facenet-pytorch 
 torch 
 torchvision
+ultralytics
