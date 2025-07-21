@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import cv2
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array
 
 # Configuração
 st.set_page_config(page_title="Detector de Sorriso", layout="centered")
@@ -22,8 +21,8 @@ model = load_trained_model()
 
 # Função para pré-processar a imagem (OpenCV)
 def prepare_image_cv(img_rgb):
-    img_resized = cv2.resize(img_rgb, IMAGE_SIZE)
-    img_array = img_to_array(img_resized) / 255.0
+    img_array = cv2.resize(img_rgb, IMAGE_SIZE)
+    img_array = img_array / 255.0
     img_array = np.expand_dims(img_array, axis=0)
     return img_array
 
